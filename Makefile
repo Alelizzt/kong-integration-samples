@@ -9,19 +9,6 @@ makefiles:=$(root_dir)/makefiles
 include $(makefiles)/help.Makefile
 include $(makefiles)/docker/compose.Makefile
 
-# Start HTTP proxy
-start-proxy:
-	-$(shell ./proxy.sh start)
-.PHONY: start-proxy
-
-# Stop HTTP proxy
-stop-proxy:
-	-$(shell ./proxy.sh stop)
-.PHONY: stop-proxy
-
-with-all: with-elk with-tig with-keycloak
-.PHONY: with-all
-
 ## Using ELK stack (Warning: put this task before other tasks)
 with-elk:
 	echo "Using ELK stack..."
@@ -41,11 +28,11 @@ with-keycloak:
 .PHONY: with-keycloak
 
 ## Deploy containers to Docker host
-deploy: compose-up start-proxy
+deploy: compose-up
 .PHONY: deploy
 
 ## Un-deploy API from Docker host
-undeploy: stop-proxy with-all compose-down
+undeploy: compose-down
 .PHONY: undeploy
 
 ## Clean generated files

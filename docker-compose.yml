@@ -22,7 +22,7 @@ services:
   # Kong database migration
   #######################################
   kong-migration:
-    image: "kong:latest"
+    image: "kong:0.14.1"
     command: "kong migrations up"
     restart: on-failure
     environment:

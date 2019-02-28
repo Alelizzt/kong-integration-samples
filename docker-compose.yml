@@ -35,7 +35,7 @@ services:
   #######################################
   kong:
     build: ./dockerfiles/kong
-    image: "ncarlier/kong:latest"
+    image: "ncarlier/kong:0.14.1"
     restart: always
     environment:
       KONG_PG_HOST: kong-database

@@ -1,4 +1,4 @@
-FROM kong:latest
+FROM kong:0.14.1
 MAINTAINER Nicolas Carlier <nicolas.carlier@worldline.com>
 
 # Kong install dir
